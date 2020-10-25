@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GraphQL</title>
+</head>
+
+<body>
+  <button onclick="getData()">获取数据</button>
+
+  <script>
+    function getData() {
+      /**
+        前端执行Graphql来进行查询需要有query 查询结果返回的 类型
+      */
+      const query = `
+          query Account($username: String){
+            account(username: $username){
+              name
+              age
+              sex
+              salary(city:"北京")
+            }
+          }
+        `
+      const variables = {
+        username: "jakequc"
+      }
+
+      // 获取数据
+      fetch("/graphql", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            query: query,
+            variables: variables
+          })
+        }).then(res => res.json())
+        .then(res => {
+          console.log(res.data)
+        })
+    }
+  </script>
+</body>
+
+</html>
