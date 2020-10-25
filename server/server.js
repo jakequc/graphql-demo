@@ -86,9 +86,6 @@ app.use('/graphql', graphqlHTTP({
   rootValue: root,
   graphiql: true // 开发时启动调试
 }));
-
-// 公开文件夹，供用户访问对应的静态文件
-app.use(express.static('public'))
 app.listen(4001, () => {
   console.log('localhost:4001 ok');
 })

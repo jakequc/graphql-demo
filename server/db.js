@@ -27,7 +27,7 @@ pool.connect((err) => {
 // })
 
 // 构建schema，schema用来 【定义查询和类型】，mutation
-// # input声明的是输入类型
+// # input声明的是输入类型定义的标志
 var schema = buildSchema(`
   input AccountInput {
     name: String

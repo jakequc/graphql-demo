@@ -77,6 +77,7 @@ const root = {
      sex: "boy",
      department:"YOOOK"
    }){
+     # 这里边是修改后返回给前端的数据键名,可以执写返回值类型的一部分键名
      name
      age
      sex
@@ -85,10 +86,11 @@ const root = {
  }
 
   query {
+    # 查询其名字 {要查询的字段1，要查询的字段2....}
     accounts {
       name,
       age,
-      sex
+      sex 
     }
   }
 
